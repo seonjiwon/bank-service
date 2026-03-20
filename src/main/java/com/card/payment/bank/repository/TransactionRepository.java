@@ -1,6 +1,7 @@
 package com.card.payment.bank.repository;
 
 import com.card.payment.bank.entity.Transaction;
+import java.time.LocalDateTime;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -28,4 +29,10 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
      * 참조 ID로 거래 조회
      */
     Optional<Transaction> findByReferenceId(String referenceId);
+
+    /**
+     * 해당 거래일 사이인지 조회
+     */
+    List<Transaction> findByTransactionDateBetween(LocalDateTime start, LocalDateTime end);
+
 }

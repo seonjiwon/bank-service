@@ -29,18 +29,22 @@ spring:
             password: bank123
 
 server:
-    port: 8080
+    port: 8081
     servlet:
         encoding:
             charset: UTF-8
             enabled: true
             force: true
 
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:8761/eureka/
+
 logging:
     level:
         com.card.payment: DEBUG
 
-# Swagger/OpenAPI 설정
 springdoc:
     api-docs:
         path: /v3/api-docs
